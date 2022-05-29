@@ -58,3 +58,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 }
 const myElement = <Car brand="Ford" />;
 ```
+
+- Presentational Components: a presentational component is a component that just renders HTML. The component's only function is presentational markup. In a Redux-powered app, a presentational component does not interact with the Redux store.
+
+- Stateful Components:  a stateful component is a component that holds some state. Stateless components, by contrast, have no state. Note that both types of components can use props
