@@ -8,6 +8,9 @@
 # Technical 
 
 - This app is build using MERN Stack [MongoDB, Express, React and Node]
-- All the tips and terms are provided as well.
+- All the tips and technical terms are provided as well :)
 
-<iframe src="https://giphy.com/embed/12BYUePgtn7sis" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/programmer-dilemma-12BYUePgtn7sis">via GIPHY</a></p>
+![coder-tester](https://user-images.githubusercontent.com/34685374/173453027-65debb53-1ea8-4f6a-96df-e8a1b2530b50.gif)
+
+
+
