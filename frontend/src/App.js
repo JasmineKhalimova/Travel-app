@@ -4,6 +4,7 @@ import Users from './user/pages/Users';
 import NewPlace from './places/pages/NewPlace';
 import UserPlaces from './places/pages/UserPlaces';
 import Nav from './shared/components/Nav/Nav';
+import UpdatePlace from './places/pages/UpdatePlace';
 import './css/main.css';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <Router>
       <Nav />
       <main>
-      <Switch>
+        <Switch>
           <Route path="/" exact>
             <Users />
           </Route>
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/places/new" exact>
             <NewPlace />
+          </Route>
+          <Route path="/places/:placeId">
+            <UpdatePlace />
           </Route>
           <Redirect to="/" />
         </Switch>
