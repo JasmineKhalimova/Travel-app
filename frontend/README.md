@@ -66,3 +66,5 @@ const myElement = <Car brand="Ford" />;
 - All the pages get displaid via App.js
 
 - React Fragment allows you to nest many elements inside one return function.
+
+- React hook is normal js function but it is function starts with use and it is functions that can share stateful logic

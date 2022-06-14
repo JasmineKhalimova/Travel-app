@@ -1,35 +1,11 @@
-import React, { useCallback, useReducer } from 'react';
+import React from 'react';
 import Input from '../../shared/components/UIElements/Input';
 import {VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH} from '../../shared/components/util/validators';
 import Button from '../../shared/components/UIElements/Button';
-
-
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case 'INPUT_CHANGE':
-      let formIsValid = true;
-      for (const inputId in state.inputs) {
-        if (inputId === action.inputId) {
-          formIsValid = formIsValid && action.isValid;
-        } else {
-          formIsValid = formIsValid && state.inputs[inputId].isValid;
-        }
-      }
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.inputId]: { value: action.value, isValid: action.isValid }
-        },
-        isValid: formIsValid
-      };
-    default:
-      return state;
-  }
-};
+import { useForm } from '../../shared/hooks/form-hook';
 
 const NewPlace = () => {
-  const [formState, dispatch] = useReducer(formReducer, {
+  const [formState, inputHandler] = useForm ({
     inputs: {
       title: {
         value: '',
@@ -38,19 +14,26 @@ const NewPlace = () => {
       description: {
         value: '',
         isValid: false
+      },
+      location: {
+        value: '',
+        isValid: false
+      },
+      stay: {
+        value: '',
+        isValid: false
+      },
+      top_recommended_things: {
+        value: '',
+        isValid: false
+      },
+      hints_tips: {
+        value: '',
+        isValid: false
       }
     },
     isValid: false
   });
-
-  const inputHandler = useCallback((id, value, isValid) => {
-    dispatch({
-      type: 'INPUT_CHANGE',
-      value: value,
-      isValid: isValid,
-      inputId: id
-    });
-  }, []);
 
   // Form submition handler
   const placeSubmithandler = event => {
@@ -96,7 +79,7 @@ const NewPlace = () => {
         onInput={inputHandler}
       />
       <Input
-        id="top-recommended-things"
+        id="top_recommended_things"
         element="input"
         type="textarea"
         label="Things to do and see"
@@ -105,39 +88,12 @@ const NewPlace = () => {
         onInput={inputHandler}
       />
       <Input
-        id="hints-tips"
+        id="hints_tips"
         element="input"
         type="textarea"
         label="Hints and Tips"
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter hints and tips"
-        onInput={inputHandler}
-      />
-      <Input
-        id="Instagram"
-        element="input"
-        type="text"
-        label="Instagram"
-        validators={[]}
-        errorText="Please enter a valid social media link."
-        onInput={inputHandler}
-      />
-      <Input
-        id="Facebook"
-        element="input"
-        type="text"
-        label="Facebook"
-        validators={[]}
-        errorText="Please enter a valid social media link."
-        onInput={inputHandler}
-      />
-      <Input
-        id="Twitter"
-        element="input"
-        type="text"
-        label="Twitter"
-        validators={[]}
-        errorText="Please enter a valid social media link."
         onInput={inputHandler}
       />
       <Button type="submit" disabled={!formState.isValid}>
