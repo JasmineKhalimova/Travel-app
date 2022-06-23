@@ -13,14 +13,10 @@ const DUMMY_PLACES = [
     description: 'One of the most famous sky scrapers in the world!',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
-    address: '20 W 34th St, New York, NY 10001',
+    location: '20 W 34th St, New York, NY 10001',
     top_recommended_things: 'hike',
     hints_tips: 'dont get lost',
     stay: 'airbnb',
-    location: {
-      lat: 40.7484405,
-      lng: -73.9878584
-    },
     creator: 'u1'
   },
   {
@@ -29,14 +25,10 @@ const DUMMY_PLACES = [
     description: 'One of the most famous sky scrapers in the world!',
     imageUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
-    address: '20 W 34th St, New York, NY 10001',
     top_recommended_things: 'hike',
     hints_tips: 'dont get lost',
     stay: 'airbnb',
-    location: {
-      lat: 40.7484405,
-      lng: -73.9878584
-    },
+    location: '20 W 34th St, New York, NY 10001',
     creator: 'u2'
   }
 ];
@@ -71,6 +63,10 @@ const UpdatePlace = () => {
       hints_tips: {
         value: '',
         isValid: false
+      },
+      creator: {
+        value: '',
+        isValid: false
       }
 
     },
@@ -102,6 +98,10 @@ const UpdatePlace = () => {
             isValid: true
           },
           hints_tips: {
+            value: identifiedPlace.hints_tips,
+            isValid: true
+          },
+          creator: {
             value: identifiedPlace.hints_tips,
             isValid: true
           }

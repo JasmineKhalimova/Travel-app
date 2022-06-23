@@ -30,6 +30,10 @@ const NewPlace = () => {
       hints_tips: {
         value: '',
         isValid: false
+      },
+      creator: {
+        value: '',
+        isValid: false
       }
     },
     isValid: false
